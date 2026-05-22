@@ -1,21 +1,43 @@
 import backgroundImage from "../assets/Background.jpg";
-import styled from "styled-components";
+
+import styled, { keyframes } from "styled-components";
+import { useEffect, useRef } from "react";
 
 export default function BackgroundImage() {
+  const inputRef = useRef(null);
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      if (inputRef.current) inputRef.current.style.display = "none";
+    }, 2000);
+    return () => clearTimeout(timer);
+  }, []);
+
   return (
     <>
-      <StyledOverlay />
+      <StyledOverlay ref={inputRef} />
       <StyledBackgroundImage src={backgroundImage} alt="Background" />
     </>
   );
 }
 
+const fadeIn = keyframes`
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+`;
+
 const StyledOverlay = styled.div`
   width: 100vw;
   height: 100vh;
   position: absolute;
-  color: black;
+  background-color: black;
+  opacity: 0;
   z-index: 10;
+  animation: ${fadeIn} 2s ease;
 `;
 
 const StyledBackgroundImage = styled.img`
