@@ -35,4 +35,8 @@ const StyledMacbookBack = styled.img`
   object-fit: contain;
   z-index: 1;
   animation: ${gentleFloat} 6s ease-in-out infinite;
+
+  @media (max-width: 480px) {
+    top: 45%;
+  }
 `;

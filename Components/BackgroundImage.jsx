@@ -36,7 +36,7 @@ const StyledOverlay = styled.div`
   position: absolute;
   background-color: black;
   opacity: 0;
-  z-index: 10;
+  z-index: 2;
   animation: ${fadeIn} 2s ease;
 `;
 
