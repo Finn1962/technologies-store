@@ -3,7 +3,13 @@ import macbookFrontImage from "../assets/macbook-front.webp";
 import styled, { keyframes } from "styled-components";
 
 export default function MacbookFront() {
-  return <StyledMacbookFront src={macbookFrontImage} alt="Macbook Front" />;
+  return (
+    <StyledMacbookFront
+      src={macbookFrontImage}
+      alt="Macbook Front"
+      draggable="false"
+    />
+  );
 }
 
 const figureEightFloat = keyframes`

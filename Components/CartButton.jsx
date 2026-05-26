@@ -2,11 +2,11 @@ import cart from "../assets/cart.svg";
 
 import styled from "styled-components";
 
-export default function Cart({ currentPage, setCurrentPage }) {
+export default function CartButton({ currentPage, setCurrentPage }) {
   return (
     <CartContainer $isHome={currentPage === "home"}>
-      <button onClick={() => setCurrentPage("cart")}>
-        <img src={cart} alt="cart" />
+      <button onClick={() => setCurrentPage("cart")} aria-label="Warenkorb">
+        <img src={cart} alt="cart" draggable="false" />
       </button>
     </CartContainer>
   );
@@ -21,7 +21,7 @@ const CartContainer = styled.div`
   img {
     width: 25px;
     transition: all 0.2s ease;
-    ${({ $isHome }) => ($isHome ? "filter: invert(1)" : "filter: invert(0)")}
+    filter: ${({ $isHome }) => ($isHome ? "invert(1)" : "invert(0)")};
   }
 
   img:hover {

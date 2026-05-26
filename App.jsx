@@ -1,8 +1,8 @@
 import Logo from "./Components/Logo.jsx";
 
-import RadioInput from "./Components/RadioInput.jsx";
+import RadioInput from "./Components/RadioInput/RadioInput.jsx";
 import Home from "./Pages/Home.jsx";
-import Cart from "./Components/Cart.jsx";
+import CartButton from "./Components/CartButton.jsx";
 
 import { useState } from "react";
 import styled from "styled-components";
@@ -14,7 +14,7 @@ function App() {
       <StyledHeader>
         <Logo currentPage={currentPage} />
         <RadioInput currentPage={currentPage} setCurrentPage={setCurrentPage} />
-        <Cart currentPage={currentPage} setCurrentPage={setCurrentPage} />
+        <CartButton currentPage={currentPage} setCurrentPage={setCurrentPage} />
       </StyledHeader>
       {currentPage === "home" && <Home />}
     </>

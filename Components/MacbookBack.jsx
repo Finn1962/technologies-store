@@ -3,7 +3,13 @@ import macbookBackImage from "../assets/macbook-back.webp";
 import styled, { keyframes } from "styled-components";
 
 export default function MacbookBack() {
-  return <StyledMacbookBack src={macbookBackImage} alt="Macbook Back" />;
+  return (
+    <StyledMacbookBack
+      src={macbookBackImage}
+      alt="Macbook Back"
+      draggable="false"
+    />
+  );
 }
 
 const gentleFloat = keyframes`

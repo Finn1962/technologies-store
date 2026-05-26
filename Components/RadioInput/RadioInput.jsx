@@ -8,6 +8,7 @@ export default function RadioInput({ currentPage, setCurrentPage }) {
           type="radio"
           id="option1"
           name="page"
+          aria-label="Home"
           checked={currentPage === "home"}
           onChange={() => setCurrentPage("home")}
         />
@@ -16,6 +17,7 @@ export default function RadioInput({ currentPage, setCurrentPage }) {
           type="radio"
           id="option2"
           name="page"
+          aria-label="Shop"
           checked={currentPage === "shop"}
           onChange={() => setCurrentPage("shop")}
         />
@@ -31,7 +33,7 @@ const RadioContainer = styled.div`
   align-items: center;
 
   label {
-    ${({ $isHome }) => ($isHome ? "color: lightgray;" : "color: darkgray;")}
+    color: ${({ $isHome }) => ($isHome ? "lightgray;" : "darkgray;")}
     font-size: 1rem;
   }
 
@@ -40,7 +42,7 @@ const RadioContainer = styled.div`
   }
 
   input:checked + label {
-    ${({ $isHome }) => ($isHome ? "color: white;" : "color: black;")}
+    color: ${({ $isHome }) => ($isHome ? "white;" : "black;")}
     text-decoration: underline solid ${({ $isHome }) =>
       $isHome ? "white" : "black"} 2px;
     text-underline-offset: 2px;

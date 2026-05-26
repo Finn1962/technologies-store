@@ -5,7 +5,7 @@ import styled from "styled-components";
 export default function Logo({ currentPage }) {
   return (
     <StyledLogoContainer $isHome={currentPage === "home"}>
-      <img src={logo} alt="Logo" />
+      <img src={logo} alt="Logo" draggable="false" />
       <p>Technologies</p>
     </StyledLogoContainer>
   );
@@ -18,12 +18,13 @@ const StyledLogoContainer = styled.div`
 
   img {
     height: 20px;
-    ${({ $isHome }) => ($isHome ? "filter: invert(1)" : "filter: invert(0)")}
+    filter: ${({ $isHome }) => ($isHome ? "invert(1)" : "invert(0)")};
   }
 
   p {
     margin-left: 2px;
     font-weight: 700;
+    cursor: default;
     color: ${({ $isHome }) => ($isHome ? "white" : "black")};
   }
 `;
