@@ -1,22 +1,35 @@
+// Assets
 import Logo from "./Components/Logo.jsx";
 
-import RadioInput from "./Components/RadioInput/RadioInput.jsx";
+// Pages
 import Home from "./Pages/Home.jsx";
-import CartButton from "./Components/CartButton.jsx";
+import Shop from "./Pages/Shop.jsx";
+import Cart from "./Pages/Cart.jsx";
 
-import { useState } from "react";
+// Components
+import CartButton from "./Components/CartButton.jsx";
+import RadioInput from "./Components/RadioInput/RadioInput.jsx";
+
+// Libarys
 import styled from "styled-components";
+import { Routes, Route } from "react-router-dom";
+
+// JS
+import "./js/fetchProductData.js";
 
 function App() {
-  const [currentPage, setCurrentPage] = useState("home");
   return (
     <>
       <StyledHeader>
-        <Logo currentPage={currentPage} />
-        <RadioInput currentPage={currentPage} setCurrentPage={setCurrentPage} />
-        <CartButton currentPage={currentPage} setCurrentPage={setCurrentPage} />
+        <Logo />
+        <RadioInput />
+        <CartButton />
       </StyledHeader>
-      {currentPage === "home" && <Home />}
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/shop" element={<Shop />} />
+        <Route path="/cart" element={<Cart />} />
+      </Routes>
     </>
   );
 }

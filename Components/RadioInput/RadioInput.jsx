@@ -1,54 +1,55 @@
 import styled from "styled-components";
+import { useLocation, Link } from "react-router-dom";
 
-export default function RadioInput({ currentPage, setCurrentPage }) {
+export default function RadioInput() {
+  const location = useLocation();
+  const currentPage =
+    location.pathname === "/" ? "home" : location.pathname.substring(1);
+
+  const fontColor = currentPage === "home" ? "white" : "black";
+
   return (
-    <RadioContainer $isHome={currentPage === "home"}>
+    <RadioContainer>
       <div>
-        <input
-          type="radio"
-          id="option1"
-          name="page"
+        <StyledLink
+          $fontColor={fontColor}
+          to="/"
           aria-label="Home"
-          checked={currentPage === "home"}
-          onChange={() => setCurrentPage("home")}
-        />
-        <label htmlFor="option1">Home</label>
-        <input
-          type="radio"
-          id="option2"
-          name="page"
+          data-active={currentPage === "home"}
+        >
+          Home
+        </StyledLink>
+        <StyledLink
+          $fontColor={fontColor}
+          to="/shop"
           aria-label="Shop"
-          checked={currentPage === "shop"}
-          onChange={() => setCurrentPage("shop")}
-        />
-        <label htmlFor="option2">Shop</label>
+          data-active={currentPage === "shop"}
+        >
+          Shop
+        </StyledLink>
       </div>
     </RadioContainer>
   );
 }
 
+const StyledLink = styled(Link)`
+  color: ${({ $fontColor }) => $fontColor};
+  text-decoration: none;
+  opacity: 0.5;
+
+  &[data-active="true"] {
+    opacity: 1;
+    text-decoration: underline solid ${({ $fontColor }) => $fontColor} 2px;
+    text-underline-offset: 2px;
+  }
+
+  &:last-of-type {
+    margin-left: 15px;
+  }
+`;
+
 const RadioContainer = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
-
-  label {
-    color: ${({ $isHome }) => ($isHome ? "lightgray;" : "darkgray;")}
-    font-size: 1rem;
-  }
-
-  label:last-of-type {
-    margin-left: 50px;
-  }
-
-  input:checked + label {
-    color: ${({ $isHome }) => ($isHome ? "white;" : "black;")}
-    text-decoration: underline solid ${({ $isHome }) =>
-      $isHome ? "white" : "black"} 2px;
-    text-underline-offset: 2px;
-  }
-
-  input {
-    display: none;
-  }
 `;

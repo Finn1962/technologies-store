@@ -1,15 +1,26 @@
 import logo from "../assets/logo.svg";
 
 import styled from "styled-components";
+import { useLocation, Link } from "react-router-dom";
 
-export default function Logo({ currentPage }) {
+export default function Logo() {
+  const location = useLocation();
+  const currentPage =
+    location.pathname === "/" ? "home" : location.pathname.substring(1);
+
   return (
-    <StyledLogoContainer $isHome={currentPage === "home"}>
-      <img src={logo} alt="Logo" draggable="false" />
-      <p>Technologies</p>
-    </StyledLogoContainer>
+    <StyledLink to="/">
+      <StyledLogoContainer $isHome={currentPage === "home"}>
+        <img src={logo} alt="Logo" draggable="false" />
+        <p>Technologies</p>
+      </StyledLogoContainer>
+    </StyledLink>
   );
 }
+
+const StyledLink = styled(Link)`
+  text-decoration: none;
+`;
 
 const StyledLogoContainer = styled.div`
   display: flex;

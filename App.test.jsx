@@ -1,18 +1,27 @@
 import { describe, it, expect } from "vitest";
 import { render, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
+import { MemoryRouter } from "react-router-dom";
 import App from "./App.jsx";
 
 describe("App Integration / Routing Test", () => {
   it("sollte standartmäßig die Home-Seite mit Teaser-Text anzeigen", () => {
-    render(<App />);
+    render(
+      <MemoryRouter initialEntries={["/"]}>
+        <App />
+      </MemoryRouter>,
+    );
 
     const teaserText = screen.getByText(/Dein Onlinestore für/i);
     expect(teaserText).toBeInTheDocument();
   });
 
   it("sollte die Home-Page ausblenden, wenn auf den Shop gewechselt wird", async () => {
-    render(<App />);
+    render(
+      <MemoryRouter initialEntries={["/"]}>
+        <App />
+      </MemoryRouter>,
+    );
 
     const shopRadio = screen.getByLabelText(/shop/i);
 
@@ -23,7 +32,11 @@ describe("App Integration / Routing Test", () => {
   });
 
   it("sollte die Home-Page ausblenden, wenn auf den Warenkorb gewechselt wird", async () => {
-    render(<App />);
+    render(
+      <MemoryRouter initialEntries={["/"]}>
+        <App />
+      </MemoryRouter>,
+    );
 
     const cartButton = screen.getByLabelText(/Warenkorb/i);
 

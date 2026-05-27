@@ -1,23 +1,23 @@
 import cart from "../assets/cart.svg";
 
 import styled from "styled-components";
+import { useLocation, Link } from "react-router-dom";
 
-export default function CartButton({ currentPage, setCurrentPage }) {
+export default function CartButton() {
+  const location = useLocation();
+  const currentPage =
+    location.pathname === "/" ? "home" : location.pathname.substring(1);
+
   return (
     <CartContainer $isHome={currentPage === "home"}>
-      <button onClick={() => setCurrentPage("cart")} aria-label="Warenkorb">
+      <Link to="/cart" aria-label="Warenkorb">
         <img src={cart} alt="cart" draggable="false" />
-      </button>
+      </Link>
     </CartContainer>
   );
 }
 
 const CartContainer = styled.div`
-  button {
-    background-color: transparent;
-    border: none;
-  }
-
   img {
     width: 25px;
     transition: all 0.2s ease;
