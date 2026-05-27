@@ -3,6 +3,7 @@ import { useFetchProductData } from "../js/fetchProductData/fetchProductData.js"
 
 import styled from "styled-components";
 
+import SearchBar from "../Components/SearchBar.jsx";
 import ProductPrevierw from "../Components/ProductPreview.jsx";
 
 export default function Shop() {
@@ -22,6 +23,9 @@ export default function Shop() {
 
   return (
     <StyledPageWrapper>
+      <div className="control-elements-container">
+        <SearchBar />
+      </div>
       {productData.map((product) => {
         return <ProductPrevierw product={product} />;
       })}
@@ -36,4 +40,12 @@ const StyledPageWrapper = styled.div`
   align-items: center;
   flex-direction: column;
   padding: 80px 20px 0 20px;
+
+  .control-elements-container {
+    max-width: 1000px;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    algn-items: center;
+  }
 `;
