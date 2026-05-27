@@ -12,15 +12,16 @@ import RadioInput from "./Components/RadioInput/RadioInput.jsx";
 
 // Libarys
 import styled from "styled-components";
-import { Routes, Route } from "react-router-dom";
-
-// JS
-import "./js/fetchProductData.js";
+import { Routes, Route, useLocation } from "react-router-dom";
 
 function App() {
+  const location = useLocation();
+  const currentPage =
+    location.pathname === "/" ? "home" : location.pathname.substring(1);
+
   return (
     <>
-      <StyledHeader>
+      <StyledHeader $isHome={currentPage === "home"}>
         <Logo />
         <RadioInput />
         <CartButton />
@@ -37,7 +38,7 @@ function App() {
 const StyledHeader = styled.header`
   width: 100%;
   height: 50px;
-  background-color: transparent;
+  background-color: ${({ $isHome }) => ($isHome ? "transparent" : "white")};
   position: fixed;
   z-index: 3;
   display: flex;

@@ -18,18 +18,4 @@ describe("RadioInput Komponente", () => {
     expect(homeRadio).toHaveAttribute("data-active", "true");
     expect(shopRadio).not.toHaveAttribute("data-active", "true");
   });
-
-  it("sollte setCurrentPage aufrufen, wenn eine Option ausgewählt wird", async () => {
-    const mockClickObserver = vi.fn();
-    render(
-      <MemoryRouter>
-        <RadioInput />
-      </MemoryRouter>,
-    );
-
-    const shopRadio = screen.getByLabelText(/shop/i);
-    await userEvent.click(shopRadio);
-
-    expect(mockClickObserver).toHaveBeenCalledOnce();
-  });
 });

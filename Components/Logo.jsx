@@ -30,6 +30,7 @@ const StyledLogoContainer = styled.div`
   img {
     height: 20px;
     filter: ${({ $isHome }) => ($isHome ? "invert(1)" : "invert(0)")};
+    cursor: pointer;
   }
 
   p {
@@ -37,5 +38,6 @@ const StyledLogoContainer = styled.div`
     font-weight: 700;
     cursor: default;
     color: ${({ $isHome }) => ($isHome ? "white" : "black")};
+    cursor: pointer;
   }
 `;

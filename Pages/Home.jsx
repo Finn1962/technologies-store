@@ -8,7 +8,7 @@ export default function Home() {
   return (
     <PageContainer>
       <p className="text">
-        Dein Onlinestore für <br></br> Technik, die begeistert.
+        Your Online Store for <br></br> Tech That Inspires.
       </p>
       <MacbookFront />
       <MacbookBack />
