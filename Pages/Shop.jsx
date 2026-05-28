@@ -6,6 +6,7 @@ import styled from "styled-components";
 import SearchBar from "../Components/SearchBar.jsx";
 import ProductPrevierw from "../Components/ProductPreview.jsx";
 import Loader from "../Components/Loader.jsx";
+import FilterButton from "../Components/FilterButton.jsx";
 
 export default function Shop() {
   const { fetchAllProductData } = useFetchProductData();
@@ -18,6 +19,7 @@ export default function Shop() {
     setIsLoading(true);
     fetchAllProductData()
       .then((data) => {
+        console.log(data);
         setProductData(data);
         setIsLoading(false);
       })
@@ -35,6 +37,7 @@ export default function Shop() {
             setProductData={setProductData}
             setIsLoading={setIsLoading}
           />
+          <FilterButton />
         </div>
         {productData.length > 0 &&
           productData.map((product) => {
