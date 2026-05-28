@@ -35,6 +35,15 @@ export function useFetchProductData() {
   async function fetchProductSearch(productName) {
     return fetch(`https://dummyjson.com/products/search?q=${productName}`)
       .then((response) => response.json())
+      .then((data) => {
+        const filteredProducts = data.products.filter(
+          (product) =>
+            product.category === "smartphones" ||
+            product.category === "tablets" ||
+            product.category === "laptops",
+        );
+        return filteredProducts;
+      })
       .catch((error) => {
         console.error("Error fetching product data:", error);
         throw error;

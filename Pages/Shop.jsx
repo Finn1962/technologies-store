@@ -5,16 +5,21 @@ import styled from "styled-components";
 
 import SearchBar from "../Components/SearchBar.jsx";
 import ProductPrevierw from "../Components/ProductPreview.jsx";
+import Loader from "../Components/Loader.jsx";
 
 export default function Shop() {
   const { fetchAllProductData } = useFetchProductData();
+
   const [productData, setProductData] = useState([]);
-  console.log(productData);
+  const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {
+    // eslint-disable-next-line
+    setIsLoading(true);
     fetchAllProductData()
       .then((data) => {
         setProductData(data);
+        setIsLoading(false);
       })
       .catch((error) => {
         console.log(error);
@@ -22,16 +27,34 @@ export default function Shop() {
   }, []);
 
   return (
-    <StyledPageWrapper>
-      <div className="control-elements-container">
-        <SearchBar />
-      </div>
-      {productData.map((product) => {
-        return <ProductPrevierw product={product} />;
-      })}
-    </StyledPageWrapper>
+    <>
+      <StyledLoader $isLoading={isLoading} />
+      <StyledPageWrapper>
+        <div className="control-elements-container">
+          <SearchBar
+            setProductData={setProductData}
+            setIsLoading={setIsLoading}
+          />
+        </div>
+        {productData.length > 0 &&
+          productData.map((product) => {
+            return <ProductPrevierw product={product} key={product.id} />;
+          })}
+        {productData.length === 0 && !isLoading && (
+          <p className="no-results">No results found.</p>
+        )}
+      </StyledPageWrapper>
+    </>
   );
 }
+
+const StyledLoader = styled(Loader)`
+  position: fixed;
+  top: 45%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: ${({ $isLoading }) => ($isLoading ? "block" : "none")};
+`;
 
 const StyledPageWrapper = styled.div`
   width: 100%;
@@ -47,5 +70,13 @@ const StyledPageWrapper = styled.div`
     display: flex;
     justify-content: space-between;
     algn-items: center;
+  }
+
+  .no-results {
+    position: fixed;
+    top: 45%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-weight: 800;
   }
 `;

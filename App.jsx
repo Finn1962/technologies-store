@@ -46,22 +46,6 @@ const StyledHeader = styled.header`
   align-items: center;
   padding: 0 3%; /* Schöner Abstand zu den Rändern */
   box-sizing: border-box;
-
-  .logo {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    filter: invert(1);
-  }
-
-  .logo img {
-    height: 20px;
-  }
-
-  .logo p {
-    margin-left: 2px;
-    font-weight: 700;
-  }
 `;
 
 export default App;
