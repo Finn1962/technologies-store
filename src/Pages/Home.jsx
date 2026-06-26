@@ -67,7 +67,7 @@ const StyledPageContainer = styled.div`
   }
 
   @media (max-width: 1024px) {
-    .text {
+    .slogan {
       font-size: 2rem;
     }
   }
