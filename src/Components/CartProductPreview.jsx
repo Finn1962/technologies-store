@@ -148,6 +148,12 @@ const ComponentContainer = styled.div`
       grid-column: 2 / 3;
     }
   }
+
+  @media (max-width: 400px) {
+    .product-description {
+      display: none;
+    }
+  }
 `;
 
 function DeleteButton({ className, onClick }) {
