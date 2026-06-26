@@ -16,7 +16,7 @@ import { LoaderContext } from "../contexts/LoaderContext.jsx";
 //Komponents
 import Loader from "../Components/Loader.jsx";
 
-export default function PopularestProductsPreview() {
+export default function PopularestProductsPreview({ className }) {
   const { showLoader, hideLoader } = useContext(LoaderContext);
 
   const { fetchAllProductData } = useFetchProductData();
@@ -37,7 +37,7 @@ export default function PopularestProductsPreview() {
   }, []);
 
   return (
-    <StyledContainer>
+    <StyledContainer className={className}>
       <div className="wrapper">
         <h2>OUR BESTSELLERS</h2>
         <div className="product-container">
@@ -75,7 +75,6 @@ const StyledContainer = styled.div`
   justify-content: start;
   align-items: center;
   flex-direction: column;
-  margin: 0 0 100px 0;
   padding: 0 20px;
   position: relative;
 

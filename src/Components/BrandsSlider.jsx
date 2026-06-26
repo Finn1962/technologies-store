@@ -26,7 +26,7 @@ const brands = [
   { image: dellLogo, size: 100, name: "dell" },
 ];
 
-export default function BrandsSlider() {
+export default function BrandsSlider({ className }) {
   const logoContainerRef = useRef(null);
   const isHovering = useRef(false);
 
@@ -57,7 +57,7 @@ export default function BrandsSlider() {
   }
 
   return (
-    <StyledContainer>
+    <StyledContainer className={className}>
       <div className="wrapper">
         <div className="slider-overlay">
           <div
@@ -86,7 +86,6 @@ export default function BrandsSlider() {
 }
 
 const StyledContainer = styled.div`
-  margin: 0 0 25px 0;
   display: flex;
   justify-content: center;
   align-items: start;

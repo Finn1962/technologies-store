@@ -22,9 +22,9 @@ export default function Home({ overlayOpacity }) {
         <MacbookBack />
         <MacbookFront />
         <BackgroundImage />
-        <BrandsSlider />
-        <TextBlock />
-        <PopularestProductsPreview />
+        <BrandsSlider className="brands-slider" />
+        <TextBlock className="text-block" />
+        <PopularestProductsPreview className="popularest-products-preview" />
         <ReviewsPreview />
       </StyledPageContainer>
     </>
@@ -54,6 +54,18 @@ const StyledPageContainer = styled.div`
     bottom: 10%;
   }
 
+  .brands-slider {
+    margin-bottom: 50px;
+  }
+
+  .text-block {
+    margin-bottom: 100px;
+  }
+
+  .popularest-products-preview {
+    margin-bottom: 100px;
+  }
+
   @media (max-width: 1024px) {
     .text {
       font-size: 2rem;
@@ -61,9 +73,9 @@ const StyledPageContainer = styled.div`
   }
 `;
 
-function TextBlock() {
+function TextBlock({ className }) {
   return (
-    <StyledTextContainer>
+    <StyledTextContainer className={className}>
       <div className="wrapper">
         <h2>OUR GOAL</h2>
         <p>
@@ -86,7 +98,6 @@ const StyledTextContainer = styled.div`
   justify-content: center;
   align-items: start;
   padding: 30px 20px;
-  margin-bottom: 75px;
   background-color: #f8f8f8;
 
   .wrapper {
