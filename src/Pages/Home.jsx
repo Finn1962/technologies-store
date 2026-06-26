@@ -16,7 +16,7 @@ export default function Home({ overlayOpacity }) {
       <StyledPageContainer>
         <StyledOverlay $overlayOpacity={overlayOpacity} />
         <ScrollIcon />
-        <p className="text">
+        <p className="slogan">
           Your Online Store for <br></br> Tech That Inspires.
         </p>
         <MacbookBack />
@@ -44,7 +44,7 @@ const StyledPageContainer = styled.div`
   width: 100%;
   height: 100%;
 
-  .text {
+  .slogan {
     position: absolute;
     color: white;
     font-size: 3rem;
@@ -55,11 +55,11 @@ const StyledPageContainer = styled.div`
   }
 
   .brands-slider {
-    margin-bottom: 50px;
+    margin-bottom: 35px;
   }
 
   .text-block {
-    margin-bottom: 100px;
+    margin-bottom: 75px;
   }
 
   .popularest-products-preview {
