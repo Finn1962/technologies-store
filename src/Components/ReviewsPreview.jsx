@@ -35,7 +35,7 @@ const StyledContainer = styled.div`
   justify-content: start;
   align-items: center;
   background-color: #f8f8f8;
-  padding: 30px 20px;
+  padding: 40px 20px;
 
   h2 {
     margin-bottom: 40px;

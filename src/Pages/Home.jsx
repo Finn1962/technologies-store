@@ -17,7 +17,7 @@ export default function Home({ overlayOpacity }) {
         <StyledOverlay $overlayOpacity={overlayOpacity} />
         <ScrollIcon />
         <p className="slogan">
-          Your Online Store for <br></br> Tech That Inspires.
+          Your online store for <br></br> tech that inspires.
         </p>
         <MacbookBack />
         <MacbookFront />
@@ -97,7 +97,7 @@ const StyledTextContainer = styled.div`
   display: flex;
   justify-content: center;
   align-items: start;
-  padding: 30px 20px;
+  padding: 40px 20px;
   background-color: #f8f8f8;
 
   .wrapper {
