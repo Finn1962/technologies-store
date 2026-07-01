@@ -1,5 +1,4 @@
 // Assets
-import Logo from "./Components/Logo.jsx";
 import gitHubLogo from "./assets/github-icon.svg";
 
 // Pages
@@ -9,6 +8,7 @@ import Cart from "./Pages/Cart.jsx";
 import Product from "./Pages/Product.jsx";
 
 // Components
+import Logo from "./Components/Logo.jsx";
 import CartButton from "./Components/CartButton.jsx";
 import RadioInput from "./Components/RadioInput.jsx";
 import PopUp from "./Components/PopUp.jsx";
